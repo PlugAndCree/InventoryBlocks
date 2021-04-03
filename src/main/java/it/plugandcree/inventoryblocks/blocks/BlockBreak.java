@@ -11,7 +11,9 @@ public class BlockBreak implements Listener {
 	public void onBlockBreak(BlockBreakEvent e) {
 		if (!e.getPlayer().hasPermission("inventoryblocks.use"))
 			return;
-
+		
+		if (e.isCancelled()) return;
+		
 		Player p = e.getPlayer();
 
 		e.setDropItems(false);
