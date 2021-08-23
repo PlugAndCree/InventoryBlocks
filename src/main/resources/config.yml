@@ -6,9 +6,9 @@ inventory-full:
     fadeout: 20
     
 messages:    
-    prefix: "&a&lInventoryBlocks > &7"
+    prefix: "&a&lInventory blocks > &7"
 
-    no-perms: "&7You don't have the permission"
+    no-perm: "&7You don't have the permission"
     reload-complete: "&7Reload complete"
     
     help: "All commands: "

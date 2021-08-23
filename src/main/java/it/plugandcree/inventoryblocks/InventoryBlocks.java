@@ -21,6 +21,8 @@ public class InventoryBlocks extends JavaPlugin {
 		
 		getServer().getPluginManager().registerEvents(new BlockBreak(), this);
 	
+		reloadConfig();
+		
 		new MainCommand().register(this);
 	}
 
