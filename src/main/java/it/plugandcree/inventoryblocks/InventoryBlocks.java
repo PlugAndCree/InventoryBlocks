@@ -7,6 +7,7 @@ import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import it.plugandcree.inventoryblocks.blocks.BlockBreak;
+import it.plugandcree.inventoryblocks.commands.MainCommand;
 import it.plugandcree.inventoryblocks.config.CustomConfig;
 
 public class InventoryBlocks extends JavaPlugin {
@@ -19,6 +20,8 @@ public class InventoryBlocks extends JavaPlugin {
 		instance = this;
 		
 		getServer().getPluginManager().registerEvents(new BlockBreak(), this);
+	
+		new MainCommand().register(this);
 	}
 
 	public static InventoryBlocks getInstance() {
