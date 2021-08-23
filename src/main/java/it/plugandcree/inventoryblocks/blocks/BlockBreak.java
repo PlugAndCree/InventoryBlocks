@@ -8,7 +8,6 @@ import org.bukkit.event.block.BlockBreakEvent;
 
 import it.plugandcree.inventoryblocks.InventoryBlocks;
 import it.plugandcree.inventoryblocks.config.CustomConfig;
-import net.md_5.bungee.api.ChatColor;
 
 public class BlockBreak implements Listener {
 
