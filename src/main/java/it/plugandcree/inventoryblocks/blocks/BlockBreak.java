@@ -7,6 +7,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 
 import it.plugandcree.inventoryblocks.InventoryBlocks;
+import it.plugandcree.inventoryblocks.config.CustomConfig;
 import net.md_5.bungee.api.ChatColor;
 
 public class BlockBreak implements Listener {
@@ -29,14 +30,11 @@ public class BlockBreak implements Listener {
 		e.getBlock().getDrops(p.getInventory().getItemInMainHand()).forEach(p.getInventory()::addItem);
 
 		if (p.getInventory().firstEmpty() == -1) {
-			p.sendTitle(
-					ChatColor.translateAlternateColorCodes('&',
-							InventoryBlocks.getInstance().getConfig().getString("inventory-full.title")),
-					ChatColor.translateAlternateColorCodes('&',
-							InventoryBlocks.getInstance().getConfig().getString("inventory-full.subtitle")),
-					InventoryBlocks.getInstance().getConfig().getInt("inventory-full.fadein"),
-					InventoryBlocks.getInstance().getConfig().getInt("inventory-full.stay"),
-					InventoryBlocks.getInstance().getConfig().getInt("inventory-full.fadeout"));
+			CustomConfig conf = InventoryBlocks.getInstance().getMainConfig();
+
+			p.sendTitle(conf.getRawString("inventory-full.title"), conf.getRawString("inventory-full.subtitle"),
+					conf.getInt("inventory-full.fadein"), conf.getInt("inventory-full.stay"),
+					conf.getInt("inventory-full.fadeout"));
 		}
 	}
 
