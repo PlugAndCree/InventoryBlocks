@@ -5,5 +5,11 @@ inventory-full:
     stay: 70
     fadeout: 20
     
-no-perms: "You don't have the permission"
-reloaded
+messages:    
+    prefix: "&a&lInventoryBlocks > &7"
+
+    no-perms: "&7You don't have the permission"
+    reload-complete: "&7Reload complete"
+    
+    help: "All commands: "
+    help-format: "&7- &a%s &8(&r%s&8)"

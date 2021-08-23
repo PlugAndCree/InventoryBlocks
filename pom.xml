@@ -9,7 +9,12 @@
 	<repositories>
 		<repository>
 			<id>spigot-repo</id>
-			<url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+			<url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/
+			</url>
+		</repository>
+		<repository>
+			<id>tecno-repo</id>
+			<url>http://repo.mrtecno.online/repository/public-maven/</url>
 		</repository>
 	</repositories>
 
@@ -19,6 +24,11 @@
 			<artifactId>spigot-api</artifactId>
 			<version>1.15.2-R0.1-SNAPSHOT</version>
 			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.spigot.libraries</groupId>
+			<artifactId>spigot-commons</artifactId>
+			<version>1.7.5-f6cd60e</version>
 		</dependency>
 	</dependencies>
 	<build>
@@ -36,6 +46,34 @@
 					<source>1.8</source>
 					<target>1.8</target>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>3.2.1</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+						<configuration>
+							<artifactSet>
+								<includes>
+									<include>com.spigot.libraries:spigot-commons</include>
+								</includes>
+							</artifactSet>
+							<relocations>
+								<relocation>
+									<pattern>com.spigot.libraries</pattern>
+									<shadedPattern>it.plugandcree.inventoryblocks.libraries
+									</shadedPattern>
+								</relocation>
+							</relocations>
+							<minimizeJar>true</minimizeJar>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
