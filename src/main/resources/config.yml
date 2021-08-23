@@ -1,0 +1,9 @@
+inventory-full:
+    title: "&8| &6&lINVENTORY FULL &8|"
+    subtitle: "&7You cannot pickup any items"
+    fadein: 10
+    stay: 70
+    fadeout: 20
+    
+no-perms: "You don't have the permission"
+reloaded
